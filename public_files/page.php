@@ -1,7 +1,6 @@
 <?php 
-//1、定义分页偏移量
-//2、获取记录总数
-//3、mysql_data_seek();
+// 利用mysql_data_seek()实现分页
+
 include "../lib/common.php";
 include "../lib/db.php";
 include "../lib/user.php";
@@ -15,7 +14,6 @@ $forum_id =1;
 
 $query = sprintf('SELECT MESSAGE_ID, SUBJECT, UNIX_TIMESTAMP(MESSAGE_DATE) AS MESSAGE_DATE FROM %sFORUM_MESSAGE WHERE PARENT_MESSAGE_ID = 0 AND FORUM_ID = %d ORDER BY MESSAGE_DATE DESC', DB_TBL_PREFIX, $forum_id);
 
-// echo $query;exit;
 $result = mysql_query($query);
 
 
@@ -27,9 +25,8 @@ if ($total = mysql_num_rows($result)) {
 	echo '<ul>';
 	$count = 0;
 	
-	// while($row = mysql_fetch_assoc($result) && $count++ < $display){
+	
 	while(($row = mysql_fetch_assoc($result))&&($count++ <$display)) {
-		// var_dump($row);
 		echo "<li><a href='".$_SERVER['PHP_SELF']."?fid=".$forum_id."&mid=". $row['MESSAGE_ID'] . "'>";
 		echo date('m/d/Y', $row['MESSAGE_DATE']) .": ";
 		echo htmlspecialchars($row['SUBJECT'])."</a></li>";
