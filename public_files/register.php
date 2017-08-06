@@ -88,7 +88,7 @@ else
 	// echo $password;
 	if (User::validateUsername($_POST['username']) && $password && User::validateEmailAddr($_POST['email']) && $captcha) 
 	{
-		echo "222";
+		// echo "222";
 		$user = User::getByUsername($_POST['username']);
 		if ($user->userId) 
 		{

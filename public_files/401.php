@@ -9,7 +9,7 @@ if (!isset($_SESSION['access']) || $_SESSION['access'] != TRUE) {
 	header("HTTP/1.0 401 Authorriaztion Error");
 	ob_start();
 	// echo '<meta http-equiv="refresh" content="10; url=login.php"/>';
-}
+
 ?>
 <script type="text/javascript">
 	window.seconds = 10;
@@ -27,3 +27,7 @@ if (!isset($_SESSION['access']) || $_SESSION['access'] != TRUE) {
 </script>
 
 <p>You will be redirected to the login page in <span id = "secondDisplay">10 seconds.</span></p>
+
+<?php  
+}
+?>

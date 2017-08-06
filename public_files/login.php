@@ -20,6 +20,8 @@ if (isset($_GET['login'])) {
 			$_SESSION['access'] = TRUE;
 			$_SESSION['userId'] = $user->userId;
 			$_SESSION['username'] = $user->username;
+			// var_dump($_SESSION);
+			// exit();
 			header("Location: main.php");
 			
 		} else {

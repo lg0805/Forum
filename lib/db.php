@@ -3,7 +3,7 @@
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASSWORD', 'p@ssw0rd');
-define('DB_SCHEMA', 'userreg');
+define('DB_SCHEMA', 'wrox_forum');
 define('DB_TBL_PREFIX', 'WROX_');
 
 

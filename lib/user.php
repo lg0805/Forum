@@ -1,8 +1,4 @@
 <?php 
-
-
-
-
 require_once('db.php');
 require_once('common.php');
 require_once('functions.php');
@@ -108,14 +104,16 @@ class User{
 		if ($this->uid) {
 			// 更新记录
 			$query = sprintf('UPDATE %sUSER SET USERNAME = "%s", PASSWORD = "%s", EMAIL_ADDR = "%s", IS_ACTIVE = %d, PERMISSION = %d WHERE USER_ID=%d', DB_TBL_PREFIX, $this->username, $this->password, $this->emailAddr, $this->isActive, $this->permission, $this->uid);
+			// echo "update";
 			
 			return mysql_query($query, $GLOBALS['DB']);
 		} else {
 
-			$query = "INSERT INTO WROX_USER(USERNAME, PASSWORD, EMAIL_ADDR, IS_ACTIVE, PERMISSION) VALUES('$this->username', '$this->password','$this->emailAddr','$this->isActive, $this->permission')";
+			$query = "INSERT INTO WROX_USER(USERNAME, PASSWORD, EMAIL_ADDR, IS_ACTIVE, PERMISSION) VALUES('$this->username', '$this->password','$this->emailAddr','$this->isActive', '$this->permission')";
 			// echo $query;
 			// exit();
 
+			// echo "insert";
 			if (mysql_query($query, $GLOBALS['DB'])) {
 				$this->uid = mysql_insert_id($GLOBALS['DB']);
 				return true;
